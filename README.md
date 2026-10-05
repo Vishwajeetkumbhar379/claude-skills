@@ -13,7 +13,7 @@
 | [**application-pack**](skills/application-pack/SKILL.md) | Builds a truthful tailored CV, cover letter, email and referral notes, or an interview prep pack | job-scout, application-humanizer |
 | [**designed-cv-tailor**](skills/designed-cv-tailor/SKILL.md) | Tailors a designed photo CV per job while keeping it ATS-safe | |
 | [**application-humanizer**](skills/application-humanizer/SKILL.md) | Removes the 15 patterns that make writing read as AI-generated | `jobscout lint` |
-| [**ui-ux-pro-max**](skills/ui-ux-pro-max/SKILL.md) | UI/UX design intelligence: searchable styles, palettes, font pairings, UX rules and stack guides, plus a design-system generator | Third-party, from [nextlevelbuilder/ui-ux-pro-max-skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill) (MIT) |
+| [**ui-ux-pro-max**](.claude/skills/ui-ux-pro-max/SKILL.md) | UI/UX design intelligence: searchable styles, palettes, font pairings, UX rules and stack guides, plus a design-system generator. Ships with its companion skills (banner-design, brand, design, design-system, slides, ui-styling) | Third-party, from [nextlevelbuilder/ui-ux-pro-max-skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill) (MIT) |
 
 ## Design principles
 
@@ -33,10 +33,12 @@ git clone https://github.com/Vishwajeetkumbhar379/claude-skills
 cp -r claude-skills/skills/application-humanizer ~/.claude/skills/
 ```
 
+**Claude Code on the web (cloud):** nothing to install. Everything in `.claude/skills/` loads automatically in any cloud session started on this repo, so the ui-ux-pro-max skills are ready as soon as the session opens. To get the same in a cloud session on another repo, copy the folders from `.claude/skills/` into that repo's `.claude/skills/`.
+
 **Claude apps:** zip a skill folder and upload it under Settings → Capabilities → Skills.
 
 The job-search skills expect a short `profile.md` (and for the humanizer, a `voice.md` with a few of your own emails) in the skill folder, so the output sounds like you.
 
 ---
 
-Built by [Vishwajeet Kumbhar](https://www.linkedin.com/in/vishwajeetkumbhar379). The humanizer patterns are adapted from [blader/humanizer](https://github.com/blader/humanizer) (MIT). ui-ux-pro-max is vendored from [nextlevelbuilder/ui-ux-pro-max-skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill) v2.13.0 (MIT, licence in its folder). MIT licence.
+Built by [Vishwajeet Kumbhar](https://www.linkedin.com/in/vishwajeetkumbhar379). The humanizer patterns are adapted from [blader/humanizer](https://github.com/blader/humanizer) (MIT). ui-ux-pro-max is vendored from [nextlevelbuilder/ui-ux-pro-max-skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill) v2.13.0 (MIT, licence in each skill folder). MIT licence.
