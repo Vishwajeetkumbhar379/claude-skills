@@ -1,0 +1,230 @@
+# React Bits catalogue (free, MIT + Commons Clause)
+
+Generated from reactbits.dev/llms.txt and the shadcn registry in DavidHDev/react-bits. `deps` = npm packages the JS-CSS variant needs.
+
+## Text Animations
+
+- [ASCII Text](https://www.reactbits.dev/text-animations/ascii-text): Renders text with an animated ASCII background for a retro feel. CLI: `ASCIIText`. deps: three
+- [Blur Text](https://www.reactbits.dev/text-animations/blur-text): Text starts blurred then crisply resolves for a soft-focus reveal effect. CLI: `BlurText`. deps: motion
+- [Circular Text](https://www.reactbits.dev/text-animations/circular-text): Layouts characters around a circle with optional rotation animation. CLI: `CircularText`. deps: motion
+- [Count Up](https://www.reactbits.dev/text-animations/count-up): Animated number counter supporting formatting and decimals. CLI: `CountUp`. deps: motion
+- [Curved Loop](https://www.reactbits.dev/text-animations/curved-loop): Flowing looping text path along a customizable curve with drag interaction. CLI: `CurvedLoop`. deps: none
+- [Decrypted Text](https://www.reactbits.dev/text-animations/decrypted-text): Hacker-style decryption cycling random glyphs until resolving to real text. CLI: `DecryptedText`. deps: motion
+- [Depth Text](https://www.reactbits.dev/text-animations/depth-text): Layered extruded type with parallax that shifts against the pointer. CLI: `DepthText`. deps: none
+- [Echo Text](https://www.reactbits.dev/text-animations/echo-text): Ghosted copies trail behind the text and settle into a single word. CLI: `EchoText`. deps: none
+- [Falling Text](https://www.reactbits.dev/text-animations/falling-text): Characters fall with gravity + bounce creating a playful entrance. CLI: `FallingText`. deps: matter-js
+- [Fold Text](https://www.reactbits.dev/text-animations/fold-text): Lines unfold into place like creased paper opening flat. CLI: `FoldText`. deps: gsap
+- [Fuzzy Text](https://www.reactbits.dev/text-animations/fuzzy-text): Vibrating fuzzy text with controllable hover intensity. CLI: `FuzzyText`. deps: none
+- [Glitch Text](https://www.reactbits.dev/text-animations/glitch-text): RGB split and distortion glitch effect with jitter effects. CLI: `GlitchText`. deps: none
+- [Gradient Text](https://www.reactbits.dev/text-animations/gradient-text): Animated gradient sweep across live text with speed and color control. CLI: `GradientText`. deps: motion
+- [Masked Heading](https://www.reactbits.dev/text-animations/masked-heading): A large headline with a drifting colour mesh or image showing through the glyphs, revealed word by word. CLI: `MaskedHeading`. deps: gsap
+- [Particle Text](https://www.reactbits.dev/text-animations/particle-text): Text assembles from drifting particles that scatter and reform on demand. CLI: `ParticleText`. deps: none
+- [Rotating Text](https://www.reactbits.dev/text-animations/rotating-text): Cycles through multiple phrases with 3D rotate / flip transitions. CLI: `RotatingText`. deps: motion
+- [Scrambled Text](https://www.reactbits.dev/text-animations/scrambled-text): Detects cursor position and applies a distortion effect to text. CLI: `ScrambledText`. deps: gsap
+- [Scroll Float](https://www.reactbits.dev/text-animations/scroll-float): Text gently floats / parallax shifts on scroll. CLI: `ScrollFloat`. deps: gsap
+- [Scroll Reveal](https://www.reactbits.dev/text-animations/scroll-reveal): Text gently unblurs and reveals on scroll. CLI: `ScrollReveal`. deps: gsap
+- [Scroll Velocity](https://www.reactbits.dev/text-animations/scroll-velocity): Text marquee animatio - speed and distortion scale with user's scroll velocity. CLI: `ScrollVelocity`. deps: motion
+- [Shiny Text](https://www.reactbits.dev/text-animations/shiny-text): Metallic sheen sweeps across text producing a reflective highlight. CLI: `ShinyText`. deps: motion
+- [Shuffle](https://www.reactbits.dev/text-animations/shuffle): Animated text reveal where characters shuffle before settling. CLI: `Shuffle`. deps: gsap, @gsap/react
+- [Split Flap Text](https://www.reactbits.dev/text-animations/split-flap-text): Mechanical split-flap departure board that clacks through to each new phrase. CLI: `SplitFlapText`. deps: none
+- [Split Text](https://www.reactbits.dev/text-animations/split-text): Splits text into characters / words for staggered entrance animation. CLI: `SplitText`. deps: gsap, @gsap/react
+- [Stroke Text](https://www.reactbits.dev/text-animations/stroke-text): Outlined letterforms draw themselves on, then flood with fill. CLI: `StrokeText`. deps: gsap
+- [Tech Text](https://www.reactbits.dev/text-animations/tech-text): A wordmark whose letters turn into dashed vector paths under the cursor. Grab any letter to drag it off the baseline and it springs back home. CLI: `TechText`. deps: none
+- [Text Cursor](https://www.reactbits.dev/text-animations/text-cursor): Make any text element follow your cursor, leaving a trail of copies behind it. CLI: `TextCursor`. deps: motion
+- [Text Loop](https://www.reactbits.dev/text-animations/text-loop): A seamless text marquee that flows along curved SVG paths. CLI: `TextLoop`. deps: gsap
+- [Text Pressure](https://www.reactbits.dev/text-animations/text-pressure): Characters scale / warp interactively based on pointer pressure zone. CLI: `TextPressure`. deps: none
+- [Text Type](https://www.reactbits.dev/text-animations/text-type): Typewriter effect with blinking cursor and adjustable typing cadence. CLI: `TextType`. deps: gsap
+- [True Focus](https://www.reactbits.dev/text-animations/true-focus): Applies dynamic blur / clarity based over a series of words in order. CLI: `TrueFocus`. deps: motion
+- [Variable Proximity](https://www.reactbits.dev/text-animations/variable-proximity): Letter styling changes continuously with pointer distance mapping. CLI: `VariableProximity`. deps: motion
+- [Warp Text](https://www.reactbits.dev/text-animations/warp-text): WebGL warp that bends and refracts the text around the pointer. CLI: `WarpText`. deps: ogl
+
+## Animations
+
+- [Animated Content](https://www.reactbits.dev/animations/animated-content): Wrapper that animates any children on scroll or mount with configurable direction, distance, duration, easing and disappear options. CLI: `AnimatedContent`. deps: gsap
+- [Antigravity](https://www.reactbits.dev/animations/antigravity): 3D antigravity particle field that repels from the cursor with smooth motion. CLI: `Antigravity`. deps: @react-three/fiber, three
+- [Blob Cursor](https://www.reactbits.dev/animations/blob-cursor): Organic blob cursor that smoothly follows the pointer with inertia and elastic morphing. CLI: `BlobCursor`. deps: gsap
+- [Click Spark](https://www.reactbits.dev/animations/click-spark): Creates particle spark bursts at click position. CLI: `ClickSpark`. deps: none
+- [Crosshair](https://www.reactbits.dev/animations/crosshair): Custom crosshair cursor with tracking, and link hover effects. CLI: `Crosshair`. deps: gsap
+- [Cubes](https://www.reactbits.dev/animations/cubes): 3D rotating cube cluster. Supports auto-rotation or hover interaction. CLI: `Cubes`. deps: gsap
+- [Cursor Grid](https://www.reactbits.dev/animations/cursor-grid): Canvas grid whose cells light up around the cursor with configurable radius, falloff and click pulses. CLI: `CursorGrid`. deps: none
+- [Dither Veil](https://www.reactbits.dev/animations/dither-veil): A photo printed as a 1-bit dither that the cursor burns through to full colour, leaving a trail that knits back cell by cell. CLI: `DitherVeil`. deps: ogl
+- [Elastic Mesh](https://www.reactbits.dev/animations/elastic-mesh): Spring-mesh surface that stretches under the pointer and settles back with damped physics. CLI: `ElasticMesh`. deps: ogl
+- [Electric Border](https://www.reactbits.dev/animations/electric-border): Jittery electric energy border with animated arcs, glow and adjustable intensity. CLI: `ElectricBorder`. deps: none
+- [Electric Logo](https://www.reactbits.dev/animations/electric-logo): Turns any SVG or PNG into a living lightning outline, with flowing strands, arcs that leap off the edges and a charge that follows the cursor. CLI: `ElectricLogo`. deps: ogl
+- [Fade Content](https://www.reactbits.dev/animations/fade-content): Simple directional fade / slide entrance / exit wrapper with threshold-based activation. CLI: `FadeContent`. deps: gsap
+- [Ghost Cursor](https://www.reactbits.dev/animations/ghost-cursor): Semi-transparent ghost cursor that smoothly follows the real cursor with a trailing effect. CLI: `GhostCursor`. deps: three
+- [Glare Hover](https://www.reactbits.dev/animations/glare-hover): Adds a realistic moving glare highlight on hover over any element. CLI: `GlareHover`. deps: none
+- [Glow Cursor](https://www.reactbits.dev/animations/glow-cursor): Shader-powered light trail that smoothly follows the pointer with customizable glow, color, taper and pulse. CLI: `GlowCursor`. deps: ogl
+- [Gradual Blur](https://www.reactbits.dev/animations/gradual-blur): Progressively un-blurs content based on scroll or trigger creating a cinematic reveal. CLI: `GradualBlur`. deps: none
+- [Halftone Reveal](https://www.reactbits.dev/animations/halftone-reveal): Print-style halftone dot matrix that resolves into sharp content around the cursor. CLI: `HalftoneReveal`. deps: ogl
+- [Image Trail](https://www.reactbits.dev/animations/image-trail): Cursor-based image trail with several built-in variants. CLI: `ImageTrail`. deps: gsap
+- [Laser Flow](https://www.reactbits.dev/animations/laser-flow): Dynamic laser light that flows onto a surface, customizable effect. CLI: `LaserFlow`. deps: three
+- [Logo Loop](https://www.reactbits.dev/animations/logo-loop): Continuously looping marquee of brand or tech logos with seamless repeat and hover pause. CLI: `LogoLoop`. deps: none
+- [Magic Rings](https://www.reactbits.dev/animations/magic-rings): Interactive magic rings effect with customizable parameters. CLI: `MagicRings`. deps: three
+- [Magnet](https://www.reactbits.dev/animations/magnet): Elements magnetically ease toward the cursor then settle back with spring physics. CLI: `Magnet`. deps: none
+- [Magnet Lines](https://www.reactbits.dev/animations/magnet-lines): Animated field lines bend toward the cursor. CLI: `MagnetLines`. deps: none
+- [Meta Balls](https://www.reactbits.dev/animations/meta-balls): Liquid metaball blobs that merge and separate with smooth implicit surface animation. CLI: `MetaBalls`. deps: ogl
+- [Metallic Paint](https://www.reactbits.dev/animations/metallic-paint): Liquid metallic paint shader which can be applied to SVG elements. CLI: `MetallicPaint`. deps: none
+- [Noise](https://www.reactbits.dev/animations/noise): Animated film grain / noise overlay adding subtle texture and motion. CLI: `Noise`. deps: none
+- [Orbit Images](https://www.reactbits.dev/animations/orbit-images): SVG Path customizable orbiting images effect. CLI: `OrbitImages`. deps: motion
+- [Pixel Swap](https://www.reactbits.dev/animations/pixel-swap): Pixel fragments assemble into a full cover, swap arbitrary content, then dissolve away with reversible colors and triggers. CLI: `PixelSwap`. deps: none
+- [Pixel Trail](https://www.reactbits.dev/animations/pixel-trail): Pixelated cursor trail emitting fading squares with retro digital feel. CLI: `PixelTrail`. deps: @react-three/fiber, @react-three/drei, three
+- [Pixel Transition](https://www.reactbits.dev/animations/pixel-transition): Pixel dissolve transition for content reveal on hover. CLI: `PixelTransition`. deps: gsap
+- [Ribbons](https://www.reactbits.dev/animations/ribbons): Flowing responsive ribbons/cursor trail driven by physics and pointer motion. CLI: `Ribbons`. deps: ogl
+- [Ripple Distortion](https://www.reactbits.dev/animations/ripple-distortion): Pointer-driven water displacement that warps content and leaves a decaying wake. CLI: `RippleDistortion`. deps: ogl
+- [Scroll Expand](https://www.reactbits.dev/animations/scroll-expand): A rounded media frame that grows to full bleed as it scrolls through the viewport. CLI: `ScrollExpand`. deps: none
+- [Shape Blur](https://www.reactbits.dev/animations/shape-blur): Morphing blurred geometric shape. The effect occurs on hover. CLI: `ShapeBlur`. deps: three
+- [Splash Cursor](https://www.reactbits.dev/animations/splash-cursor): Liquid splash burst at cursor with curling ripples and waves. CLI: `SplashCursor`. deps: none
+- [Star Border](https://www.reactbits.dev/animations/star-border): Animated star / sparkle border orbiting content with twinkle pulses. CLI: `StarBorder`. deps: none
+- [Sticker Peel](https://www.reactbits.dev/animations/sticker-peel): Sticker corner lift + peel interaction using 3D transform and shadow depth. CLI: `StickerPeel`. deps: gsap
+- [Strands](https://www.reactbits.dev/animations/strands): Glowing ribbon-like strands that ripple and weave across a transparent canvas. CLI: `Strands`. deps: ogl
+- [Swarm Cursor](https://www.reactbits.dev/animations/swarm-cursor): Flocking particle swarm that chases the pointer, jostles for space and drifts apart at rest. CLI: `SwarmCursor`. deps: ogl
+- [Target Cursor](https://www.reactbits.dev/animations/target-cursor): A cursor follow animation with 4 corners that lock onto targets. CLI: `TargetCursor`. deps: react-dom, gsap
+
+## Components
+
+- [Accordion Gallery](https://www.reactbits.dev/components/accordion-gallery): Panels expand on hover or focus, revealing parallax imagery and captions. CLI: `AccordionGallery`. deps: gsap
+- [Animated List](https://www.reactbits.dev/components/animated-list): List items enter with staggered motion variants for polished reveals. CLI: `AnimatedList`. deps: motion
+- [Border Glow](https://www.reactbits.dev/components/border-glow): Glowing mesh-gradient border that follows cursor direction and intensifies near edges. CLI: `BorderGlow`. deps: none
+- [Bounce Cards](https://www.reactbits.dev/components/bounce-cards): Cards bounce that bounce in on mount. CLI: `BounceCards`. deps: gsap
+- [Bubble Menu](https://www.reactbits.dev/components/bubble-menu): Floating circular expanding menu with staggered item reveal. CLI: `BubbleMenu`. deps: gsap
+- [Card Nav](https://www.reactbits.dev/components/card-nav): Expandable navigation bar with card panels revealing nested links. CLI: `CardNav`. deps: gsap, react-icons
+- [Card Swap](https://www.reactbits.dev/components/card-swap): Cards animate position swapping with smooth layout transitions. CLI: `CardSwap`. deps: gsap
+- [Carousel](https://www.reactbits.dev/components/carousel): Responsive carousel with touch gestures, looping and transitions. CLI: `Carousel`. deps: motion, react-icons
+- [Chroma Grid](https://www.reactbits.dev/components/chroma-grid): A responsive grid of grayscale tiles. Hovering the grid reaveals their colors. CLI: `ChromaGrid`. deps: gsap
+- [Circular Gallery](https://www.reactbits.dev/components/circular-gallery): Circular orbit gallery rotating images. CLI: `CircularGallery`. deps: ogl
+- [Counter](https://www.reactbits.dev/components/counter): Flexible animated counter supporting increments + easing. CLI: `Counter`. deps: motion
+- [Curved Input](https://www.reactbits.dev/components/curved-input): Arc-bent input bar with text, caret and submit button all following the curve. CLI: `CurvedInput`. deps: none
+- [Decay Card](https://www.reactbits.dev/components/decay-card): Hover parallax effect that disintegrates the content of a card. CLI: `DecayCard`. deps: gsap
+- [Depth Carousel](https://www.reactbits.dev/components/depth-carousel): Cards recede into depth on a 3D rail, with drag, keyboard and auto-advance. CLI: `DepthCarousel`. deps: gsap
+- [Dock](https://www.reactbits.dev/components/dock): macOS style magnifying dock with proximity scaling of icons. CLI: `Dock`. deps: motion
+- [Dome Gallery](https://www.reactbits.dev/components/dome-gallery): Immersive 3D dome gallery projecting images on a hemispheric surface. CLI: `DomeGallery`. deps: @use-gesture/react
+- [Drift Wall](https://www.reactbits.dev/components/drift-wall): An endless perspective wall of tiles drifting past, lifting on hover. CLI: `DriftWall`. deps: none
+- [Elastic Slider](https://www.reactbits.dev/components/elastic-slider): Slider handle stretches elastically then snaps with spring physics. CLI: `ElasticSlider`. deps: motion, @chakra-ui/react, react-icons
+- [Flex Carousel](https://www.reactbits.dev/components/flex-carousel): An infinite image row that flows through invisible liquid glass at its edges, with four bend presets, five entrances, a speed squeeze and click to focus. CLI: `FlexCarousel`. deps: ogl
+- [Flowing Menu](https://www.reactbits.dev/components/flowing-menu): Liquid flowing active indicator glides between menu items. CLI: `FlowingMenu`. deps: gsap
+- [Fluid Glass](https://www.reactbits.dev/components/fluid-glass): Glassmorphism container with animated liquid distortion refraction. CLI: `FluidGlass`. deps: three, @react-three/fiber, @react-three/drei, maath
+- [Flying Posters](https://www.reactbits.dev/components/flying-posters): 3D posters rotate on scroll infinitely. CLI: `FlyingPosters`. deps: ogl
+- [Folder](https://www.reactbits.dev/components/folder): Interactive folder opens to reveal nested content smooth motion. CLI: `Folder`. deps: none
+- [Glass Icons](https://www.reactbits.dev/components/glass-icons): Icon set styled with frosted glass blur. CLI: `GlassIcons`. deps: none
+- [Glass Surface](https://www.reactbits.dev/components/glass-surface): Advanced Apple-style glass surface with real-time distortion + lighting. CLI: `GlassSurface`. deps: none
+- [Gooey Nav](https://www.reactbits.dev/components/gooey-nav): Navigation indicator morphs with gooey blob transitions between items. CLI: `GooeyNav`. deps: none
+- [Infinite Menu](https://www.reactbits.dev/components/infinite-menu): Horizontally looping menu effect that scrolls endlessly with seamless wrap. CLI: `InfiniteMenu`. deps: gl-matrix
+- [Infinite Spiral](https://www.reactbits.dev/components/infinite-spiral): An endlessly looping 3D helix of images with customizable motion, depth, spacing and interaction. CLI: `InfiniteSpiral`. deps: none
+- [Lanyard](https://www.reactbits.dev/components/lanyard): Swinging 3D lanyard / badge card with realistic inertial motion. CLI: `Lanyard`. deps: none
+- [Line Sidebar](https://www.reactbits.dev/components/line-sidebar): Static list navigation with a cursor-proximity effect that shifts and highlights nearby items. CLI: `LineSidebar`. deps: none
+- [Magic Bento](https://www.reactbits.dev/components/magic-bento): Interactive bento grid tiles expand + animate with various options. CLI: `MagicBento`. deps: gsap
+- [Masonry](https://www.reactbits.dev/components/masonry): Responsive masonry layout with animated reflow + gaps optimization. CLI: `Masonry`. deps: gsap
+- [Model Viewer](https://www.reactbits.dev/components/model-viewer): Three.js model viewer with orbit controls and lighting presets. CLI: `ModelViewer`. deps: @react-three/fiber, @react-three/drei, three
+- [Morph Slider](https://www.reactbits.dev/components/morph-slider): WebGL slider that melts between images with a displacement transition. CLI: `MorphSlider`. deps: ogl, gsap
+- [Option Wheel](https://www.reactbits.dev/components/option-wheel): Curved option picker that spins via scroll, drag, or arrow keys, fading and tilting items away from the selection. CLI: `OptionWheel`. deps: none
+- [Pill Nav](https://www.reactbits.dev/components/pill-nav): Minimal pill nav with sliding active highlight + smooth easing. CLI: `PillNav`. deps: react-router-dom, gsap
+- [Pixel Card](https://www.reactbits.dev/components/pixel-card): Card content revealed through pixel expansion transition. CLI: `PixelCard`. deps: none
+- [Profile Card](https://www.reactbits.dev/components/profile-card): Animated profile card glare with 3D hover effect. CLI: `ProfileCard`. deps: none
+- [Reflective Card](https://www.reactbits.dev/components/reflective-card): Card with dynamic webcam reflection and glare effects that respond to cursor movement. CLI: `ReflectiveCard`. deps: lucide-react
+- [Scroll Stack](https://www.reactbits.dev/components/scroll-stack): Overlapping card stack reveals on scroll with depth layering. CLI: `ScrollStack`. deps: lenis
+- [Specular Button](https://www.reactbits.dev/components/specular-button): Glass button with a shader-driven specular rim light that sweeps around the edge and follows the cursor. CLI: `SpecularButton`. deps: ogl
+- [Spotlight Card](https://www.reactbits.dev/components/spotlight-card): Dynamic spotlight follows cursor casting gradient illumination. CLI: `SpotlightCard`. deps: none
+- [Stack](https://www.reactbits.dev/components/stack): Layered stack with swipe animations, autoplay and smooth transitions. CLI: `Stack`. deps: motion
+- [Staggered Menu](https://www.reactbits.dev/components/staggered-menu): Menu with staggered item animations and smooth transitions on open/close. CLI: `StaggeredMenu`. deps: gsap
+- [Stepper](https://www.reactbits.dev/components/stepper): Animated multi-step progress indicator with active state transitions. CLI: `Stepper`. deps: motion
+- [Tilted Card](https://www.reactbits.dev/components/tilted-card): 3D perspective tilt card reacting to pointer. CLI: `TiltedCard`. deps: motion
+
+## Micro
+
+- [Bell Toggle](https://www.reactbits.dev/micro/bell-toggle): Pill toggle that answers a press at three tempos: the bell rings on damped keyframes, the label blur-crossfades, and the pill unfurls to the longer label through a clip-path on a critically damped spring. The pressed state is the receipt. CLI: `BellToggle`. deps: motion, @hugeicons/react, @hugeicons/core-free-icons
+- [Branched Menu](https://www.reactbits.dev/micro/branched-menu): Collapsible menu whose sections unfold into a trunk with a curved branch to each child, and an accent line that travels down the trunk and around the curve to whatever you pick, while a marker glides to the open section. CLI: `BranchedMenu`. deps: @hugeicons/react, @hugeicons/core-free-icons
+- [Call Chip](https://www.reactbits.dev/micro/call-chip): Inline tool-call chip whose fill wipes across while a live ms counter ticks, completing with a green wash on success or stopping short and shaking red with a retry glyph on error. CLI: `CallChip`. deps: @hugeicons/react, @hugeicons/core-free-icons
+- [Code Slots](https://www.reactbits.dev/micro/code-slots): One-time-code input where a hidden overlay input owns focus, paste and SMS autofill while each slot lands its digit on one spring: the fill swells from the centre, the digit rises and the caret glides; a wrong code drains the slots in a cascade, a right one merges them into a single accent wash. CLI: `CodeSlots`. deps: motion, @hugeicons/react, @hugeicons/core-free-icons
+- [Comet Dial](https://www.reactbits.dev/micro/comet-dial): Tick-ring dial you flick by angle: the reading launches on a spring and a velocity-driven comet streaks behind the lit head, trailing the direction of travel and vanishing at rest. CLI: `CometDial`. deps: motion
+- [Dodge Field](https://www.reactbits.dev/micro/dodge-field): Wrapper that makes any child flee the pointer inside a bounded field, dodges once per approach, then relents after a few tries and glides home. CLI: `DodgeField`. deps: motion
+- [Flip Card](https://www.reactbits.dev/micro/flip-card): Two-faced card that flips in 3D on a click, a drag or a flick, settling on a spring that carries your release velocity, with an optional cursor tilt, a sheen that follows the pointer and a shadow that narrows as it turns edge on. CLI: `FlipCard`. deps: motion
+- [Folder Float](https://www.reactbits.dev/micro/folder-float): Folder that opens on hover or press: the flap tilts toward you, a paper edge rises, and its notes spring out from behind the flap into a floating cloud to pick from, then sink back when the folder closes. CLI: `FolderFloat`. deps: matter-js
+- [Fuse Button](https://www.reactbits.dev/micro/fuse-button): Action button whose done state carries its own undo on a burning fuse: press, the label crossfades to Undo, a hairline burns for the undo window, and Undo or Escape runs it back. CLI: `FuseButton`. deps: @hugeicons/react, @hugeicons/core-free-icons
+- [Glide Select](https://www.reactbits.dev/micro/glide-select): Select chip whose menu pops out of its own corner and whose single hover highlight glides between rows, remembering where you left it so re-entry slides from there instead of blinking in. CLI: `GlideSelect`. deps: @hugeicons/react, @hugeicons/core-free-icons
+- [Hold Button](https://www.reactbits.dev/micro/hold-button): Hold-to-confirm button whose liquid fill rises while pressed, snaps back on an early release and swaps its label through a blur when the hold completes. CLI: `HoldButton`. deps: none
+- [Jelly Radio](https://www.reactbits.dev/micro/jelly-radio): Radio group of labelled chips where the chosen one swells wide-then-tall on two springs and barges its neighbours outward with a travelling stagger, so a selection reads as a force moving through the row. CLI: `JellyRadio`. deps: motion
+- [Lattice Loader](https://www.reactbits.dev/micro/lattice-loader): Inline agent-status row: a 3x3 or 4x4 lattice whose cells brighten in a phase-offset wave beside a verb and a live stopwatch, resolving into a check or a cross when the task ends. CLI: `LatticeLoader`. deps: none
+- [Paper Crumple](https://www.reactbits.dev/micro/paper-crumple): An image that crumples into a textured 3D sheet while held and follows the grabbed point as you drag. Release it as a crumpled ball, unfold it flat, or leave the paper creased, with customizable folds, paper grain, lighting and shadows. CLI: `PaperCrumple`. deps: three
+- [Peek Rating](https://www.reactbits.dev/micro/peek-rating): Star rating you can try before you commit: sweeping the row lifts a trailing wave of stars up to the pointer while a tip hops along with the label; a click commits with a pop. CLI: `PeekRating`. deps: @hugeicons/react, @hugeicons/core-free-icons
+- [Prompt Bar](https://www.reactbits.dev/micro/prompt-bar): Chat composer with an @ sources menu, a / commands menu, a model picker, dictation and attachments, whose send tile charges to ink the moment there is something to send and morphs its arrow into a stop square while busy. CLI: `PromptBar`. deps: motion, @hugeicons/react, @hugeicons/core-free-icons
+- [Pulse Heart](https://www.reactbits.dev/micro/pulse-heart): Like button that contracts to a dot, flips colour at its smallest frame and pulses back while the count swaps one glyph. CLI: `PulseHeart`. deps: @hugeicons/core-free-icons
+- [Refine Frame](https://www.reactbits.dev/micro/refine-frame): Reserved-aspect frame that walks any media through queued, generating, refining and complete without layout shift: each stage is one blur, saturate, scale and opacity tween, a soft band sweeps while it works, a chip reports the stage, and an error dims the picture behind a retry pill. CLI: `RefineFrame`. deps: @hugeicons/react, @hugeicons/core-free-icons
+- [Rubber Segment](https://www.reactbits.dev/micro/rubber-segment): Segmented control with a rubber thumb: taps stretch it across the gap and squash it onto the target, and you can grab, drag and flick it between slots. CLI: `RubberSegment`. deps: motion
+- [Scrub Field](https://www.reactbits.dev/micro/scrub-field): Number chip you drag to scrub: the value follows the hand, pushes past the range on a rubber band, and a click without moving opens it for typing. CLI: `ScrubField`. deps: motion
+- [Shredder](https://www.reactbits.dev/micro/shredder): A list with a paper shredder at the bottom. Drag a row into the slit and the rollers tug it in, pull it through and cut it into strips that curl out underneath, tumble away and fade out. The rest of the list settles down on a spring and the shredded item is handed to you to delete. CLI: `Shredder`. deps: react-dom
+- [Slide Commit](https://www.reactbits.dev/micro/slide-commit): Slide-to-confirm handle that plants with a spinner while your action runs, unfurls into a done pill on success and springs home with a squash and shake on failure. CLI: `SlideCommit`. deps: motion, @hugeicons/react, @hugeicons/core-free-icons
+- [Sling Button](https://www.reactbits.dev/micro/sling-button): Send button you pull back like a slingshot: the band stretches, a power arc arms it, and releasing fires the action with the flick's velocity. CLI: `SlingButton`. deps: motion, @hugeicons/react, @hugeicons/core-free-icons
+- [Slosh Gauge](https://www.reactbits.dev/micro/slosh-gauge): Tank gauge whose liquid chases the value with mass, tilts with its own speed and splashes against the top when it slams full; optionally a vertical slider. CLI: `SloshGauge`. deps: none
+- [Spring Check](https://www.reactbits.dev/micro/spring-check): Checkbox row where a single spring fills the box, draws the tick, strikes the label and dims the words in one press. CLI: `SpringCheck`. deps: motion, @hugeicons/core-free-icons
+- [Squish Switch](https://www.reactbits.dev/micro/squish-switch): Drag-scrubbable switch whose thumb stretches by how fast it moves, flips at the midpoint and squashes against the track end on a flick. CLI: `SquishSwitch`. deps: motion
+- [Status Mark](https://www.reactbits.dev/micro/status-mark): A 20px status glyph for agent task lists that morphs in place from a dashed idle ring to a spinning or real-progress arc, then draws a check or a cross, with an optional label strike. CLI: `StatusMark`. deps: motion
+- [Swipe Row](https://www.reactbits.dev/micro/swipe-row): List row that swipes open to reveal actions, snaps by flick velocity, and deletes on a full swipe that stretches the action colour across the row. CLI: `SwipeRow`. deps: motion, @hugeicons/react, @hugeicons/core-free-icons
+- [Swipe Toast](https://www.reactbits.dev/micro/swipe-toast): Single toast that rises through its bottom edge, swipes down to dismiss on a flick or a distance, and burns a thin fuse for exactly its remaining time; hover pauses it and an inline mode keeps it inside any container. CLI: `SwipeToast`. deps: motion, @hugeicons/react, @hugeicons/core-free-icons
+- [Tear Ticket](https://www.reactbits.dev/micro/tear-ticket): Ticket whose perforated stub tears off by hand: paper bridges stretch into fibres and snap one by one from the far end, the torn edges are jagged and fit each other, the freed stub dangles and drops, and the body is stamped as used. The artwork tilts in 3D with parallax on hover. CLI: `TearTicket`. deps: motion
+- [Thought Line](https://www.reactbits.dev/micro/thought-line): Reasoning-trace header: a glyph and a label breathe beside a live clock while steps appear beneath, then the line settles on one beat into "Thought for 4.2s" through a blur crossfade and the trace folds into it. CLI: `ThoughtLine`. deps: motion, @hugeicons/react, @hugeicons/core-free-icons
+- [Voice Pill](https://www.reactbits.dev/micro/voice-pill): Mic button that swells into a tinted capsule of level-driven equalizer bars and an elapsed clock while held or toggled, then relaxes back into the mic on release; simulated voice by default, real microphone as an opt-in. CLI: `VoicePill`. deps: @hugeicons/react, @hugeicons/core-free-icons
+- [Wake Slider](https://www.reactbits.dev/micro/wake-slider): Range slider drawn as thin bars with no thumb: drag speed raises a wake that trails behind the handle and flattens again at rest. CLI: `WakeSlider`. deps: motion
+- [Warm Tooltip](https://www.reactbits.dev/micro/warm-tooltip): Tooltip group with one shared delay: the first label waits and pops from its trigger, then siblings open instantly while the group is warm, with an optional velocity lean. CLI: `WarmTooltip`. deps: react-dom, motion
+
+## Backgrounds
+
+- [Acid Squares](https://www.reactbits.dev/backgrounds/acid-squares): A crystalline corridor of stacked squares receding into depth. CLI: `AcidSquares`. deps: ogl
+- [Aero Shards](https://www.reactbits.dev/backgrounds/aero-shards): A GPU-driven wind sculpture of folded foil shards with crisp detail, content-safe placements, and responsive pointer interactions. CLI: `AeroShards`. deps: vgpu
+- [Aurora](https://www.reactbits.dev/backgrounds/aurora): Flowing aurora gradient background. CLI: `Aurora`. deps: ogl
+- [Balatro](https://www.reactbits.dev/backgrounds/balatro): The balatro shader, fully customizalbe and interactive. CLI: `Balatro`. deps: ogl
+- [Ballpit](https://www.reactbits.dev/backgrounds/ballpit): Physics ball pit simulation with bouncing colorful spheres. CLI: `Ballpit`. deps: three
+- [Beams](https://www.reactbits.dev/backgrounds/beams): Crossing animated ribbons with customizable properties. CLI: `Beams`. deps: three, @react-three/fiber, @react-three/drei
+- [Color Bends](https://www.reactbits.dev/backgrounds/color-bends): Vibrant color bends with smooth flowing animation. CLI: `ColorBends`. deps: three
+- [CRT Warp](https://www.reactbits.dev/backgrounds/crt-warp): Full-canvas CRT plasma with curved distortion, scanlines, bloom and pointer interaction. CLI: `CRTWarp`. deps: three
+- [Dark Veil](https://www.reactbits.dev/backgrounds/dark-veil): Subtle dark background with a smooth animation and postprocessing. CLI: `DarkVeil`. deps: ogl
+- [Dither](https://www.reactbits.dev/backgrounds/dither): Retro dithered noise shader background. CLI: `Dither`. deps: @react-three/fiber, @react-three/postprocessing, postprocessing, three
+- [Dot Field](https://www.reactbits.dev/backgrounds/dot-field): Interactive dot grid with cursor bulge, glow, sparkle, and wave effects. CLI: `DotField`. deps: none
+- [Dot Grid](https://www.reactbits.dev/backgrounds/dot-grid): Animated dot grid with cursor interactions. CLI: `DotGrid`. deps: gsap
+- [Evil Eye](https://www.reactbits.dev/backgrounds/evil-eye): Procedural evil eye shader with animated iris, slit pupil, and fiery outer glow. CLI: `EvilEye`. deps: ogl
+- [Faulty Terminal](https://www.reactbits.dev/backgrounds/faulty-terminal): Terminal CRT scanline squares effect with flicker + noise. CLI: `FaultyTerminal`. deps: ogl
+- [Ferrofluid](https://www.reactbits.dev/backgrounds/ferrofluid): A churning magnetic fluid traced by glowing contour lines, with a cursor magnet. CLI: `Ferrofluid`. deps: ogl
+- [Floating Lines](https://www.reactbits.dev/backgrounds/floating-lines): 3D floating lines that react to cursor movement. CLI: `FloatingLines`. deps: three
+- [Galaxy](https://www.reactbits.dev/backgrounds/galaxy): Parallax realistic starfield with pointer interactions. CLI: `Galaxy`. deps: ogl
+- [Ghost Fibers](https://www.reactbits.dev/backgrounds/ghost-fibers): A deep-blue recursive fiber field with luminous bands, radial twisting and soft atmospheric glow. CLI: `GhostFibers`. deps: ogl
+- [Gradient Blinds](https://www.reactbits.dev/backgrounds/gradient-blinds): Layered gradient blinds with spotlight and noise distortion. CLI: `GradientBlinds`. deps: ogl
+- [Gradient Waves](https://www.reactbits.dev/backgrounds/gradient-waves): Raymarched sine waves rolling toward a soft, hazy horizon. CLI: `GradientWaves`. deps: ogl
+- [Grainient](https://www.reactbits.dev/backgrounds/grainient): Grainy gradient swirls with soft wave distortion. CLI: `Grainient`. deps: ogl
+- [Grid Distortion](https://www.reactbits.dev/backgrounds/grid-distortion): Warped grid mesh distorts smoothly reacting to cursor. CLI: `GridDistortion`. deps: three
+- [Grid Motion](https://www.reactbits.dev/backgrounds/grid-motion): Perspective moving grid lines based on cusror position. CLI: `GridMotion`. deps: gsap
+- [Grid Scan](https://www.reactbits.dev/backgrounds/grid-scan): Animated grid room 3D scan effect and cool interactions. CLI: `GridScan`. deps: face-api.js, postprocessing, three
+- [Hyperspeed](https://www.reactbits.dev/backgrounds/hyperspeed): Animated lines continuously moving to simulate hyperspace travel on click hold. CLI: `Hyperspeed`. deps: postprocessing, three
+- [Iridescence](https://www.reactbits.dev/backgrounds/iridescence): Slick iridescent shader with shifting waves. CLI: `Iridescence`. deps: ogl
+- [Letter Glitch](https://www.reactbits.dev/backgrounds/letter-glitch): Matrix style letter animation. CLI: `LetterGlitch`. deps: none
+- [Lightfall](https://www.reactbits.dev/backgrounds/lightfall): Colorful light streaks raining down a glowing tunnel with a cursor light. CLI: `Lightfall`. deps: ogl
+- [Lightning](https://www.reactbits.dev/backgrounds/lightning): Procedural lightning bolts with branching and glow flicker. CLI: `Lightning`. deps: none
+- [Light Pillar](https://www.reactbits.dev/backgrounds/light-pillar): Vertical pillar of light with glow effects. CLI: `LightPillar`. deps: three
+- [Light Rays](https://www.reactbits.dev/backgrounds/light-rays): Volumetric light rays/beams with customizable direction. CLI: `LightRays`. deps: ogl
+- [Light Tunnel](https://www.reactbits.dev/backgrounds/light-tunnel): A radial fibre-optic tunnel with light pulses racing into depth. CLI: `LightTunnel`. deps: ogl
+- [Line Waves](https://www.reactbits.dev/backgrounds/line-waves): Animated line wave pattern with colorful warped distortion. CLI: `LineWaves`. deps: ogl
+- [Liquid Chrome](https://www.reactbits.dev/backgrounds/liquid-chrome): Liquid metallic chrome shader with flowing reflective surface. CLI: `LiquidChrome`. deps: ogl
+- [Liquid Ether](https://www.reactbits.dev/backgrounds/liquid-ether): Interactive liquid shader with flowing distortion and customizable colors. CLI: `LiquidEther`. deps: three
+- [Micro Slats](https://www.reactbits.dev/backgrounds/micro-slats): A wall of tiny slats that becomes a rolling sea in perspective, with glinting crests, four presets, a real fluid the cursor stirs and an intro that rolls in from the horizon. CLI: `MicroSlats`. deps: ogl
+- [Molten Metal](https://www.reactbits.dev/backgrounds/molten-metal): Swirling caustic plasma filaments with molten, white-hot cores. CLI: `MoltenMetal`. deps: ogl
+- [Orb](https://www.reactbits.dev/backgrounds/orb): Floating energy orb with customizable hover effect. CLI: `Orb`. deps: ogl
+- [Particles](https://www.reactbits.dev/backgrounds/particles): Configurable particle system. CLI: `Particles`. deps: ogl
+- [Pixel Blast](https://www.reactbits.dev/backgrounds/pixel-blast): Exploding pixel particle bursts with optional liquid postprocessing. CLI: `PixelBlast`. deps: postprocessing, three
+- [Pixel Snow](https://www.reactbits.dev/backgrounds/pixel-snow): Falling pixelated snow effect with customizable density and speed. CLI: `PixelSnow`. deps: three
+- [Plasma](https://www.reactbits.dev/backgrounds/plasma): Organic plasma gradients swirl + morph with smooth turbulence. CLI: `Plasma`. deps: ogl
+- [Plasma Wave](https://www.reactbits.dev/backgrounds/plasma-wave): Raymarched plasma waves with dual-wave interference and OGL. CLI: `PlasmaWave`. deps: ogl
+- [Prism](https://www.reactbits.dev/backgrounds/prism): Rotating prism with configurable intensity, size, and colors. CLI: `Prism`. deps: ogl
+- [Prismatic Burst](https://www.reactbits.dev/backgrounds/prismatic-burst): Burst of light rays with controllable color, distortion, amount. CLI: `PrismaticBurst`. deps: ogl
+- [Radar](https://www.reactbits.dev/backgrounds/radar): Radar sweep effect with concentric rings, radial spokes, and a rotating beam. CLI: `Radar`. deps: ogl
+- [Ripple Grid](https://www.reactbits.dev/backgrounds/ripple-grid): A grid that continuously animates with a ripple effect. CLI: `RippleGrid`. deps: ogl
+- [Scanner](https://www.reactbits.dev/backgrounds/scanner): Calm interference bands sweeping across the screen like an oscilloscope. CLI: `Scanner`. deps: ogl
+- [Shape Grid](https://www.reactbits.dev/backgrounds/shape-grid): Animated grid with shape variants (square, hexagon, circle, triangle) + direction customization. CLI: `ShapeGrid`. deps: none
+- [Shape Waves](https://www.reactbits.dev/backgrounds/shape-waves): A WebGPU field of triangles, circles and squares that brighten and grow along rolling waves, with an optional text cutout the waves flow around. CLI: `ShapeWaves`. deps: vgpu
+- [Side Rays](https://www.reactbits.dev/backgrounds/side-rays): Animated light rays emanating from the side with customizable colors and speed. CLI: `SideRays`. deps: ogl
+- [Silk](https://www.reactbits.dev/backgrounds/silk): Smooth waves background with soft lighting. CLI: `Silk`. deps: @react-three/fiber, three
+- [Sliced Waves](https://www.reactbits.dev/backgrounds/sliced-waves): A grid of soft glowing bars rippling like a slatted equalizer. CLI: `SlicedWaves`. deps: ogl
+- [Soft Aurora](https://www.reactbits.dev/backgrounds/soft-aurora): Soft aurora borealis shader with 3D Perlin noise and cosine gradient palettes. CLI: `SoftAurora`. deps: ogl
+- [Threads](https://www.reactbits.dev/backgrounds/threads): Animated pattern of lines forming a fabric-like motion. CLI: `Threads`. deps: ogl
+- [Topography](https://www.reactbits.dev/backgrounds/topography): A living contour map with glowing, elevation-tinted lines. CLI: `Topography`. deps: ogl
+- [Waves](https://www.reactbits.dev/backgrounds/waves): Layered lines that form smooth wave patterns with animation. CLI: `Waves`. deps: none
+- [Web Threads](https://www.reactbits.dev/backgrounds/web-threads): Glowing sine threads woven through a luminous convergence point. CLI: `WebThreads`. deps: ogl
+
