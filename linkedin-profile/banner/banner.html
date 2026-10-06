@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=1584">
+<title>Vish LinkedIn Cover</title>
+<!--
+  LinkedIn cover for Vishwajeet Kumbhar. 1584 x 396, rendered with three.js.
+
+  Edit the words in COPY below, the colours in :root and PALETTE, the
+  artefacts in ARTEFACTS. Open through a local server (the module import
+  needs one), e.g.  python3 -m http.server  then /banner.html
+  URL options:  ?dir=A|B|C  (composition)   ?guides=1  (crop + photo guides)
+  Export:       node export.mjs   (writes the PNG at exactly 1584 x 396)
+
+  Palette and type are taken from vishkumbhar.netlify.app (night theme):
+  Syne for display, Public Sans for text, IBM Plex Mono for code.
+-->
+<style>
+  @font-face{font-family:"Syne";font-weight:600;src:url(fonts/syne-latin-600-normal.woff2) format("woff2")}
+  @font-face{font-family:"Syne";font-weight:700;src:url(fonts/syne-latin-700-normal.woff2) format("woff2")}
+  @font-face{font-family:"Syne";font-weight:800;src:url(fonts/syne-latin-800-normal.woff2) format("woff2")}
+  @font-face{font-family:"Public Sans";font-weight:400;src:url(fonts/public-sans-latin-400-normal.woff2) format("woff2")}
+  @font-face{font-family:"Public Sans";font-weight:500;src:url(fonts/public-sans-latin-500-normal.woff2) format("woff2")}
+  @font-face{font-family:"Public Sans";font-weight:600;src:url(fonts/public-sans-latin-600-normal.woff2) format("woff2")}
+  @font-face{font-family:"IBM Plex Mono";font-weight:400;src:url(fonts/ibm-plex-mono-latin-400-normal.woff2) format("woff2")}
+  @font-face{font-family:"IBM Plex Mono";font-weight:500;src:url(fonts/ibm-plex-mono-latin-500-normal.woff2) format("woff2")}
+
+  :root{
+    --bg:#101918; --deep:#0B1312; --paper:#16211F; --ink:#E8E3D7; --muted:#9AA7A2;
+    --teal:#0E4B48; --signal:#E8B03F;
+  }
+  html,body{margin:0;background:var(--bg)}
+  #cover{position:relative;width:1584px;height:396px;overflow:hidden;background:var(--bg)}
+  #gl{position:absolute;inset:0;width:1584px;height:396px;display:block}
+  .copy{position:absolute;color:var(--ink);font-family:"Public Sans",sans-serif}
+  .line1{font-family:"Syne",sans-serif;font-weight:700;letter-spacing:-.01em;line-height:1.02;margin:0}
+  .line2{font-family:"Syne",sans-serif;font-weight:600;line-height:1.08;margin:.18em 0 0;color:var(--ink);opacity:.8}
+  .proof{font-weight:500;letter-spacing:.005em;color:var(--muted);margin:0}
+  .proof b{color:var(--ink);font-weight:600}
+  .shade{position:absolute;inset:0;pointer-events:none}
+  /* Guides: desktop + mobile photo overlap and side crop (approximate, see README) */
+  .guide{position:absolute;pointer-events:none;border:2px dashed rgba(255,80,80,.9)}
+  .guide.photo{border-radius:50%}
+  .guide.crop{border-color:rgba(80,200,255,.9)}
+</style>
+</head>
+<body>
+<div id="cover">
+  <canvas id="gl" width="1584" height="396"></canvas>
+  <div class="shade" id="shade"></div>
+  <div class="copy" id="copy">
+    <h1 class="line1" id="l1"></h1>
+    <p class="line2" id="l2"></p>
+    <p class="proof" id="l3"></p>
+  </div>
+</div>
+
+<script type="importmap">{"imports":{"three":"./vendor/three.module.min.js"}}</script>
+<script type="module">
+import * as THREE from 'three';
+
+/* ---------- words (edit here) ---------- */
+const COPY = {
+  line1: 'I take creator campaigns<br>from brief to report,',
+  line2: 'and build the tools for every step.',
+  proof: '<b>20+ brand accounts.</b> <b>A 12-person team.</b> Building at <b>Build with Vish</b>.'
+};
+
+/* ---------- palette (from the portfolio night theme) ---------- */
+const P = {
+  bg:'#101918', deep:'#0B1312', paper:'#F5F2EA', bone:'#ECE7DC', ink:'#142220', inkSoft:'#56645F',
+  line:'#CFC8B8', teal:'#0E4B48', tealHi:'#2F6F69', night:'#16211F', cream:'#E8E3D7',
+  gold:'#E8B03F', goldInk:'#8A5F06', good:'#2F7A55'
+};
+
+const q = new URLSearchParams(location.search);
+const DIR = (q.get('dir') || 'A').toUpperCase();
+const W = 1584, H = 396;
+const SS = Number(q.get('ss') || 1);          // supersample factor used by the exporter
+await Promise.all(['700 20px Syne','800 20px Syne','600 20px Syne','400 20px "Public Sans"','500 20px "Public Sans"','600 20px "Public Sans"','400 12px "IBM Plex Mono"','500 12px "IBM Plex Mono"'].map(f=>document.fonts.load(f)));
+
+/* ---------- canvas textures for each artefact ---------- */
+const TEX_SCALE = 3;
+function tex(wu, hu, draw){
+  const c = document.createElement('canvas');
+  c.width = Math.round(wu*TEX_SCALE*100); c.height = Math.round(hu*TEX_SCALE*100);
+  const g = c.getContext('2d'); const s = c.width/ (wu*100);
+  g.scale(s, s); draw(g, wu*100, hu*100);
+  const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = 8;
+  return t;
+}
+const F = {
+  disp:(w,px)=>`${w} ${px}px Syne`, body:(w,px)=>`${w} ${px}px "Public Sans"`, mono:(w,px)=>`${w} ${px}px "IBM Plex Mono"`
+};
+function fit(g,text,x,y,maxW,font){ g.font=font; const m=g.measureText(text).width; if(m>maxW){ g.save(); g.translate(x,y); g.scale(maxW/m,1); g.fillText(text,0,0); g.restore(); } else g.fillText(text,x,y); }
+function rr(g,x,y,w,h,r){g.beginPath();g.roundRect(x,y,w,h,r);}
+function bar(g,x,y,w,h,col){g.fillStyle=col;rr(g,x,y,w,h,h/2);g.fill();}
+
+const ARTEFACTS = {
+  brief:{ w:2.1, h:2.8, face:P.paper, edge:'#D8D1C2', draw(g,w,h){
+    g.fillStyle=P.paper; g.fillRect(0,0,w,h);
+    g.fillStyle=P.ink; fit(g,'Creator brief',18,42,w-36,F.disp(800,26));
+    g.fillStyle=P.gold; g.fillRect(18,54,40,4);
+    const rows=['Goal','Audience','Budget per tier','Deliverables','Usage + disclosure'];
+    rows.forEach((r,i)=>{ const y=88+i*36; g.fillStyle=P.inkSoft; g.font=F.body(600,11.5); g.fillText(r.toUpperCase(),18,y);
+      bar(g,18,y+8,w-36-(i%2)*40,7,'#DCD5C6'); });
+    g.font=F.mono(500,10); g.fillStyle=P.goldInk; g.fillText('1 goal, 1 audience, 1 budget',18,h-18);
+  }},
+  shortlist:{ w:2.6, h:2.0, face:P.night, edge:'#24322F', draw(g,w,h){
+    g.fillStyle=P.night; g.fillRect(0,0,w,h);
+    g.fillStyle=P.cream; g.font=F.disp(700,20); g.fillText('Shortlist',16,34);
+    const st=[['Shortlist',P.gold],['Shortlist',P.gold],['Maybe','#9AA7A2'],['Pass','#56645F']];
+    st.forEach(([lab,col],i)=>{ const x=16+(i%2)*((w-40)/2+8), y=50+Math.floor(i/2)*68, cw=(w-40)/2, ch=60;
+      g.fillStyle='#1E2B29'; rr(g,x,y,cw,ch,8); g.fill();
+      const grd=g.createLinearGradient(x+10,y+10,x+46,y+46); grd.addColorStop(0,i<2?'#C9A253':'#3B4F4B'); grd.addColorStop(1,i<2?'#6E5420':'#24322F');
+      g.fillStyle=grd; g.beginPath(); g.arc(x+30,y+30,18,0,7); g.fill();
+      bar(g,x+56,y+18,cw-70,6,'#3A4B48'); bar(g,x+56,y+30,cw-90,6,'#2E3D3A');
+      g.fillStyle=col; g.font=F.body(600,10); g.fillText(lab,x+56,y+52);
+    });
+  }},
+  contract:{ w:2.1, h:2.8, face:P.paper, edge:'#D8D1C2', draw(g,w,h){
+    g.fillStyle=P.paper; g.fillRect(0,0,w,h);
+    g.fillStyle=P.ink; fit(g,'Creator agreement',18,40,w-36,F.disp(800,22));
+    for(let i=0;i<11;i++){ const y=62+i*15; if(i===4||i===5) continue; bar(g,18,y,w-36-((i*37)%60),5,'#DCD5C6'); }
+    g.fillStyle='rgba(232,176,63,.35)'; g.fillRect(14,117,w-28,30);
+    g.fillStyle=P.goldInk; fit(g,'usage: 12 months, named channels',20,135,w-40,F.mono(500,10.5));
+    g.fillStyle=P.inkSoft; g.font=F.body(600,10); g.fillText('AD LABEL: "WERBUNG"',18,h-56);
+    g.strokeStyle=P.ink; g.lineWidth=1.6; g.beginPath(); g.moveTo(18,h-22); g.lineTo(w-18,h-22); g.stroke();
+    g.beginPath(); g.moveTo(24,h-28); g.bezierCurveTo(44,h-58,58,h-10,78,h-34); g.bezierCurveTo(92,h-50,104,h-24,124,h-36); g.stroke();
+  }},
+  approval:{ w:1.35, h:2.7, face:'#0D1514', edge:'#1A2523', radius:true, draw(g,w,h){
+    g.fillStyle='#0D1514'; g.fillRect(0,0,w,h);
+    g.fillStyle='#1B2826'; rr(g,8,8,w-16,h-16,14); g.fill();
+    const grd=g.createLinearGradient(0,30,w,170); grd.addColorStop(0,'#0E4B48'); grd.addColorStop(.6,'#2F6F69'); grd.addColorStop(1,'#C9A253');
+    g.fillStyle=grd; rr(g,14,34,w-28,150,8); g.fill();
+    g.fillStyle='rgba(255,255,255,.88)'; g.beginPath(); g.arc(w/2,110,18,0,7); g.fill();
+    g.fillStyle='#2F6F69'; g.beginPath(); g.moveTo(w/2-5,100); g.lineTo(w/2+9,110); g.lineTo(w/2-5,120); g.fill();
+    g.fillStyle=P.cream; g.font=F.body(600,10); g.fillText('Werbung',16,26);
+    bar(g,14,196,w-40,6,'#3A4B48'); bar(g,14,208,w-60,6,'#2E3D3A');
+    g.fillStyle=P.good; rr(g,14,h-58,w-28,30,15); g.fill();
+    g.fillStyle='#EAF5EE'; g.font=F.body(600,12.5); g.fillText('✓ Approved',26,h-38);
+  }},
+  report:{ w:2.4, h:2.6, face:P.paper, edge:'#D8D1C2', draw(g,w,h){
+    g.fillStyle=P.paper; g.fillRect(0,0,w,h);
+    g.fillStyle=P.ink; fit(g,'Monday report',18,40,w-36,F.disp(800,22));
+    g.fillStyle=P.inkSoft; g.font=F.body(500,11); g.fillText('per creator: what to do next',18,60);
+    const rows=[['Scale',0.86,P.good],['Keep',0.62,P.tealHi],['Test',0.44,P.gold],['Cut',0.22,'#B4553F']];
+    rows.forEach(([lab,v,col],i)=>{ const y=88+i*36; g.fillStyle=P.ink; g.font=F.body(600,13); g.fillText(lab,18,y+12);
+      bar(g,70,y+3,(w-90),10,'#E4DED1'); bar(g,70,y+3,(w-90)*v,10,col); });
+    g.fillStyle=P.goldInk; fit(g,'reallocate budget, then report again',18,h-18,w-36,F.mono(500,10));
+  }},
+  tools:{ w:3.0, h:1.9, face:'#0A1110', edge:'#1A2523', draw(g,w,h){
+    g.fillStyle='#0A1110'; g.fillRect(0,0,w,h);
+    g.fillStyle='#16211F'; g.fillRect(0,0,w,22);
+    ['#B4553F','#E8B03F','#2F7A55'].forEach((c,i)=>{g.fillStyle=c;g.beginPath();g.arc(14+i*14,11,4,0,7);g.fill();});
+    g.fillStyle='#9AA7A2'; g.font=F.mono(400,10); g.fillText('github.com/Vishwajeetkumbhar379',62,15);
+    const L=[['$ ','creator-fit creators.csv brief.toml'],['  ','ranked, with reasons and risk flags'],['$ ','contract-check agreement.txt'],['  ','verdict: negotiate before signing'],['$ ','campaign-report'],['  ','scale / keep / test / cut']];
+    L.forEach(([p,t],i)=>{ const y=46+i*21; g.font=F.mono(i%2?400:500,12.5);
+      g.fillStyle=i%2?'#6F7F7A':P.gold; g.fillText(p,12,y); g.fillStyle=i%2?'#8FA09A':P.cream; g.fillText(t,28,y); });
+    g.fillStyle=P.gold; g.fillRect(28,46+6*21-11,8,14);
+  }}
+};
+
+function artefact(key){
+  const a = ARTEFACTS[key]; const d = a.depth || 0.06;
+  const front = new THREE.MeshStandardMaterial({ map: tex(a.w,a.h,a.draw), roughness:.78, metalness:0 });
+  const side = new THREE.MeshStandardMaterial({ color:a.edge, roughness:.9 });
+  const m = new THREE.Mesh(new THREE.BoxGeometry(a.w,a.h,d), [side,side,side,side,front,side]);
+  m.castShadow = true; m.receiveShadow = true; m.userData.key = key; return m;
+}
+const ORDER = ['brief','shortlist','contract','approval','report','tools'];
+
+/* ---------- scene ---------- */
+const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('gl'), antialias:true, preserveDrawingBuffer:true });
+renderer.setPixelRatio(SS); renderer.setSize(W,H,false);
+renderer.outputColorSpace = THREE.SRGBColorSpace;
+renderer.toneMapping = THREE.ACESFilmicToneMapping; renderer.toneMappingExposure = 1.05;
+renderer.shadowMap.enabled = true; renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+const scene = new THREE.Scene(); scene.background = new THREE.Color(P.bg);
+
+function lights(target, fogNear, fogFar){
+  scene.fog = new THREE.Fog(P.bg, fogNear, fogFar);
+  scene.add(new THREE.HemisphereLight('#F4EBD8', '#0B1312', 0.9));
+  const key = new THREE.DirectionalLight('#FFF1D6', 2.3); key.position.set(-6,9,8); key.target.position.copy(target);
+  key.castShadow = true; key.shadow.mapSize.set(2048,2048); key.shadow.radius = 6; key.shadow.bias = -0.0004;
+  Object.assign(key.shadow.camera,{left:-22,right:22,top:14,bottom:-14,near:1,far:60});
+  scene.add(key, key.target);
+  const rim = new THREE.DirectionalLight('#6FB8AE', 0.7); rim.position.set(8,3,-6); scene.add(rim);
+}
+function floor(y, color){
+  const f = new THREE.Mesh(new THREE.PlaneGeometry(200,200), new THREE.MeshStandardMaterial({color, roughness:1}));
+  f.rotation.x = -Math.PI/2; f.position.y = y; f.receiveShadow = true; scene.add(f); return f;
+}
+function thread(points, radius=0.025){
+  const curve = new THREE.CatmullRomCurve3(points, false, 'centripetal');
+  const m = new THREE.Mesh(new THREE.TubeGeometry(curve, 400, radius, 10, false),
+    new THREE.MeshStandardMaterial({ color:P.gold, emissive:P.gold, emissiveIntensity:.35, roughness:.4 }));
+  m.castShadow = true; scene.add(m); return curve;
+}
+function bead(p){ const b=new THREE.Mesh(new THREE.SphereGeometry(.07,24,16), new THREE.MeshStandardMaterial({color:P.gold,emissive:P.gold,emissiveIntensity:.5})); b.position.copy(p); scene.add(b); }
+
+let camera; const L = {};          // layout for the copy block
+const copyEl = document.getElementById('copy');
+
+/* A · Panorama arc: the campaign wraps around the message like a gallery wall */
+function dirA(){
+  camera = new THREE.PerspectiveCamera(40, W/H, .1, 200); camera.position.set(0,1.5,9.5); camera.lookAt(0,1.3,0);
+  lights(new THREE.Vector3(0,-1,-2), 11, 30); const FY=-2.7; floor(FY, '#0E1716');
+  // [x, z, rotY, lift]  lift = height above the floor (the two outer pieces float at eye level)
+  const spots = [[-8.1,-0.9,.6,3.6],[-5.0,-2.0,.38,0],[-1.7,-3.0,.14,0],[1.55,-3.1,-.12,0],[4.85,-2.2,-.34,0],[8.2,-1.0,-.6,3.25]];
+  const pts=[];
+  ORDER.forEach((k,i)=>{ const a=ARTEFACTS[k], m=artefact(k); const [x,z,ry,lift]=spots[i];
+    m.position.set(x, FY + a.h/2 + .02 + lift, z); m.rotation.y=ry; scene.add(m);
+    const foot = new THREE.Vector3(x, FY+.03, z+.55);
+    if(lift){ // a thin gold drop line from the floating pieces to the floor path
+      const top=new THREE.Vector3(x, FY+lift+.02, z); thread([top, top.clone().lerp(foot,.5).setY(FY+lift*.4), foot], .012); }
+    pts.push(foot); });
+  thread(pts, .03); pts.forEach(bead);
+  Object.assign(L,{left:490, top:42, w:760, s1:54, s2:32, s3:19, align:'left'});
+  const pool = new THREE.SpotLight('#FFE3A8', 60, 30, .55, .9, 1.6); pool.position.set(0,7,-1); pool.target.position.set(0,FY,-2.6); scene.add(pool, pool.target);
+}
+
+/* B · Corridor: the steps stand in a line that runs from the message into depth */
+function dirB(){
+  camera = new THREE.PerspectiveCamera(40, W/H, .1, 200); camera.position.set(0,1.1,9); camera.lookAt(1.2,0.4,0);
+  lights(new THREE.Vector3(4,0,-4), 9, 34); floor(-1.45, '#0E1716');
+  const pts=[];
+  ORDER.forEach((k,i)=>{ const m=artefact(k); const a=ARTEFACTS[k];
+    const x = 9.2 - i*1.25, z = 2.4 - i*3.1; m.position.set(x, -1.45 + a.h/2 + .02, z); m.rotation.y = -.72; scene.add(m);
+    pts.push(new THREE.Vector3(x-1.0, -1.42, z+.9)); });
+  thread(pts, .03);
+  Object.assign(L,{left:250, top:58, w:720, s1:52, s2:30, s3:19, align:'left'});
+}
+
+/* C · Workbench: the whole campaign laid out on one table, seen from above */
+function dirC(){
+  const aspect=W/H, vh=7.2; camera = new THREE.OrthographicCamera(-vh*aspect/2, vh*aspect/2, vh/2, -vh/2, .1, 100);
+  camera.position.set(6,12,9); camera.lookAt(0,0,0); camera.zoom=1.0; camera.updateProjectionMatrix();
+  lights(new THREE.Vector3(0,0,0), 40, 90); floor(0, '#13201E');
+  const spots=[[1.6,0,1.6,.25],[3.9,0,-.4,-.1],[6.0,0,1.5,.15],[7.9,0,-.6,-.2],[9.9,0,1.2,.1],[12.2,0,-.5,-.05]];
+  const pts=[];
+  ORDER.forEach((k,i)=>{ const m=artefact(k); const [x,,z,rz]=spots[i]; m.rotation.x=-Math.PI/2; m.rotation.z=rz; m.position.set(x+0.5, .035, z); scene.add(m);
+    pts.push(new THREE.Vector3(x+0.5, .09, z+ARTEFACTS[k].h/2-.1)); });
+  thread(pts, .03);
+  Object.assign(L,{left:230, top:60, w:700, s1:48, s2:28, s3:18, align:'left'});
+}
+
+({A:dirA,B:dirB,C:dirC}[DIR] || dirA)();
+
+/* copy block */
+document.getElementById('l1').innerHTML = COPY.line1;
+document.getElementById('l2').innerHTML = COPY.line2;
+document.getElementById('l3').innerHTML = COPY.proof;
+Object.assign(copyEl.style,{left:L.left+'px', top:L.top+'px', width:L.w+'px', textAlign:L.align});
+document.getElementById('l1').style.fontSize = L.s1+'px';
+document.getElementById('l2').style.fontSize = L.s2+'px';
+const p3=document.getElementById('l3'); p3.style.fontSize=L.s3+'px'; p3.style.marginTop='18px';
+/* a soft pool of background behind the words so the scene never fights the copy */
+document.getElementById('shade').style.background =
+  `radial-gradient(ellipse 520px 190px at ${L.left+L.w*0.42}px ${L.top+95}px, rgba(16,25,24,.82), rgba(16,25,24,0) 70%)`;
+
+if (q.get('guides')) {
+  const add=(cls,css)=>{const d=document.createElement('div');d.className='guide '+cls;Object.assign(d.style,css);document.getElementById('cover').appendChild(d);};
+  add('photo',{left:'47px',top:'175px',width:'300px',height:'300px'});                        // desktop, 804px-wide card
+  add('photo',{left:'65px',top:'154px',width:'422px',height:'422px',borderStyle:'dotted'});    // mobile, full 4:1 width
+  add('photo',{left:'247px',top:'213px',width:'317px',height:'317px',borderStyle:'dotted'});   // mobile, 3:1 centre crop
+  add('crop',{left:'198px',top:'0',width:'1188px',height:'394px'});                            // 3:1 centre crop
+}
+
+renderer.render(scene, camera);
+document.body.dataset.ready = '1';
+</script>
+</body>
+</html>
