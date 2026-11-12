@@ -29,12 +29,12 @@ Put 2-3 of the person's own past emails in `voice.md` next to this file, then no
 6. **Reflex triads**: lists of three by habit. Use two, four, or one developed example.
 7. **Repeated openers**: never three sentences in a row starting with "I"; under half overall.
 8. **Dashes as connectors**: use a period, comma, colon or parentheses.
-9. **Stock AI words**: crucial, pivotal, enhance, showcase, landscape, delve, leverage, robust, seamless, cutting-edge, spearhead, testament, tapestry, navigate, furthermore, moreover.
-10. **Cover-letter cliches**: passionate, thrilled, eager to, great fit, proven track record, results-driven, hit the ground running, align perfectly, I am writing to, To whom it may concern.
+9. **Stock AI words**: the one list is `STOCK_WORDS` in [job-search-agent/job_search_agent/humanizer.py](https://github.com/Vishwajeetkumbhar379/job-search-agent/blob/main/job_search_agent/humanizer.py).
+10. **Cover-letter cliches**: `CLICHES` in the same file.
 11. **Shallow -ing riders**: ", highlighting...", ", ensuring...". Keep the fact, drop the rider.
 12. **Inflated phrasing**: plays a key role, serves as, stands as. Use is / has.
-13. **Chatbot residue**: I hope this helps, feel free to, don't hesitate.
-14. **Follow-up cliches**: just checking in, touching base, circling back.
+13. **Chatbot residue**: `CLICHES` in the same file.
+14. **Follow-up cliches**: `CLICHES` in the same file.
 15. **Uniform rhythm**: mix short and long sentences.
 
 ## How to work
